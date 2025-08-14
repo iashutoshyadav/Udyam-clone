@@ -1,13 +1,7 @@
-FROM node:20
-
-# Install openssl (needed for Prisma)
-RUN apt-get update && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
-
+FROM node:18-alpine
 WORKDIR /app
-
 COPY package*.json ./
 RUN npm install
-
 COPY . .
-
+EXPOSE 5000
 CMD ["npm", "start"]

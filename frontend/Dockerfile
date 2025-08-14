@@ -1,6 +1,12 @@
-FROM node:20-alpine
+# Use Node for building
+FROM node:18-alpine as build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-CMD ["npm", "start"]
+RUN npm run build
+
+# Use nginx to serve static files
+FROM nginx:alpine
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80
