@@ -1,0 +1,30 @@
+{
+  "scrapedAt": "2025-08-13T07:57:28.379Z",
+   "steps": [
+    {
+      "id": 1,
+      "title": "Aadhaar Verification with OTP",
+      "fields": [
+        { "label": "Aadhaar Number", "name": "aadhaarNumber", "type": "text", "required": true, "placeholder": "12-digit Aadhaar" },
+        { "label": "Name as per Aadhaar", "name": "aadhaarName", "type": "text", "required": true },
+        { "label": "Consent", "name": "consent", "type": "checkbox", "required": true },
+        { "label": "OTP", "name": "otp", "type": "text", "required": true, "placeholder": "6-digit OTP" }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "PAN Verification",
+      "fields": [
+        { "label": "PAN", "name": "pan", "type": "text", "required": true, "placeholder": "ABCDE1234F" },
+        { "label": "Name as per PAN", "name": "panName", "type": "text", "required": true },
+        { "label": "Have you filed previous FY ITR?", "name": "itrFiled", "type": "select", "required": true, "options": [{"value":"yes","label":"Yes"},{"value":"no","label":"No"}] },
+        { "label": "GSTIN (optional)", "name": "gstin", "type": "text", "required": false }
+      ]
+    }
+  ],
+  "rules": {
+    "aadhaar": { "regex": "^[2-9][0-9]{11}$" },
+    "pan": { "regex": "^[A-Z]{5}[0-9]{4}[A-Z]{1}$" },
+    "otp": { "regex": "^[0-9]{6}$" }
+  }
+}

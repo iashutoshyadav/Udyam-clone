@@ -1,0 +1,10 @@
+{
+  "name": "udyam-scraper",
+  "type": "module",
+  "scripts": {
+    "scrape": "node scrape.js"
+  },
+  "dependencies": {
+    "puppeteer": "^24.16.1"
+  }
+}
